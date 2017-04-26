@@ -1,0 +1,10 @@
+Abstract: description of the project with purpose and features
+
+Mathematical statement: d^2u/dx^2+d^2u/dy^2=-F(x,y)
+Discritized versions of equation:
+
+Description of numerical method (Gauss-Seidel and Relaxation)
+
+Technical specs of computer used: Lenovo ideapad 100 Intel Pentium CPU N3540 @2.16GHz, 4GB RAM, 500GB HDD
+
+Results (including graphs and comments)
