@@ -1,0 +1,20 @@
+%%
+N=25;
+h=2*pi/(N-1);
+a_y=-pi;
+a_x=-pi;
+b_y=pi;
+b_x=pi;
+x=linspace(a_x,b_x,N);
+y=linspace(b_y,a_y,N);
+u=zeros(N,N+1);
+[X,Y]=meshgrid(x,y);
+
+for k=2:N
+  u(k,1)=y(k)*(y(k)-a_y)^2;
+end
+
+for k=2:N
+  u(N-1,k)=(y(k)^2*cos(pi*y(k)/a_y));
+end
+
