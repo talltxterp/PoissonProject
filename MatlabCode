@@ -38,8 +38,12 @@ while iterations<100
   while counter<=N/2;
   
     for j=N-counter+1:-1:counter;
-      U(counter, j)= {(sin(pi*(x(k)-a_x)/(b_x-a_x))*cos(pi/2*(2*((y(k)-a_y)/(b_y-a_y)+1)))+u(counter+1,j)+u(counter-1, j)+u(counter, j-1)+u(counter, J+1)}/4;
+      u(counter-1, j)= {(sin(pi*(x(k)-a_x)/(b_x-a_x))*cos(pi/2*(2*((y(counter-1)-a_y)/(b_y-a_y)+1)))+u(counter,j)+u(counter-2, j)+u(counter, j-1)+u(counter, J+1)}/4;
     end
     
-
+    for j=N-counter+1:-1:counter;
+      u(N-counter, j)= {(sin(pi*(x(k)-a_x)/(b_x-a_x))*cos(pi/2*(2*((y(N-counter)-a_y)/(b_y-a_y)+1)))+u(N-counter+1,j)+u(N-counter-1, j)+u(N-counter, j-1)+u(N-counter, J+1)}/4;
+    end
+    
+    
   
