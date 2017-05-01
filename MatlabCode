@@ -9,21 +9,26 @@ x=linspace(a_x,b_x,N+1);
 y=linspace(b_y,a_y,N);
 u=zeros(N,N+1);
 
+%F(x,y)
+%for k=1:N-1;
+ % u(N+1,k)=sin(pi*(x(k)-a_x)/(b_x-a_x))*cos(pi/2*(2*((y(k)-a_y)/(b_y-a_y)+1))
+%end
+
 [X,Y]=meshgrid(x,y);
 
-%bottom BC
+%left BC
 for k=2:N-1;
   u(k,N-2)=(y(k)^2*cos(pi*y(k)/a_y));
 end
 
-%Top BC
+%right BC
 for k=2:N-1;
   u(k,1)=y(k)*(y(k)-a_y)^2;
 end
 
-%Right BC
-for k=1:N-1;
-  u(N+1,k)=sin(pi*(x(k)-a_x)/(b_x-a_x))*cos(pi/2*(2*((y(k)-a_y)/(b_y-a_y)+1))
+%Top BC
+for k=2:N-1;
+  u(1,k) = y(k)+((x-a_x)/(b_x-a_x))*((y(k)-a_y)^2*cos(pi*y(k)/a_y))-y(k)*(y(k)-a_y)^2))
 end
 
 iterations=1;
@@ -32,6 +37,9 @@ while iterations<100
   counter=2;
   while counter<=N/2;
   
-    for j=N-counter+1:-(1:counter
-    U(counter, j)= 
+    for j=N-counter+1:-1:counter;
+      U(counter, j)= {(sin(pi*(x(k)-a_x)/(b_x-a_x))*cos(pi/2*(2*((y(k)-a_y)/(b_y-a_y)+1)))+u(counter+1,j)+u(counter-1, j)+u(counter, j-1)+u(counter, J+1)}/4;
+    end
+    
+
   
